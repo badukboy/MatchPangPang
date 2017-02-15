@@ -1,0 +1,202 @@
+<!DOCTYPE HTML>
+
+<html>
+
+<head>
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <meta charset="utf-8" lang="en">
+
+    <title>Play</title>
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+
+    <link rel="stylesheet" href="../styles/style.css" />
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    <script src="../js/prefixfree.min.js"></script>
+    <script src="../js/game.js"></script>
+
+</head>
+
+<body>
+    <audio src="../musics/FinalPang.mp3" id="FinalPang"></audio>
+    <div data-role="page" id="gameBoard">
+        <div>
+            <a href="../"><img id="home" src="../images/home.png" alt="logo"/></a>
+        </div>
+        <span id="gameButtons">
+
+            <span class="button">
+                <span id="time">30</span> SEC
+            </span>
+        <!--<span class="button">
+<span id="counter">0</span> Moves
+</span> -->
+<span class="button">
+    <span id="totalScore">200</span> Score
+</span>
+        <!-- <span class="button">
+<span id="correct">0</span> Success
+</span> -->
+        <!--<span class="button">
+<span id="wrong">0</span> Fail
+</span> -->
+
+</span>
+<div id="boxes"> </div>
+
+<div data-role="popup" id="gameOverPopUp" data-overlay-theme="a" data-theme="c" data-dismissible="false" style="max-width:300px;" class="ui-corner-all" data-history="false">
+    <div data-role="header" class="ui-header ui-bar-c">
+        <h1>Game Over!</h1>
+
+    </div>
+
+
+    <div data-role="content" data-theme="d" class="ui-corner-bottom ui-content">
+        <span id="gameOverMessage"></span>
+        <span id="finalScore"><h2></h2></span>
+        <p>Please Enter Your Name:</p>
+        <div class="ui-grid-a">
+            <input type="text" name="username" id="username" value="">
+
+
+
+            <a id="btnOK" href="#" data-role="button" data-inline="true" data-rel="back" data-transition="flow" data-theme="b">OK</a>
+            <a id="btnCancel" href="#" data-role="button" data-inline="true" data-rel="back" data-theme="c">Cancel</a>
+
+        </div>
+
+    </div>
+</div>
+
+
+
+<!-- Perfect score in level 1 achievement -->
+<div data-role="popup" id="achievement1" data-overlay-theme="a" data-theme="c" data-dismissible="false" style="max-width:300px;" class="ui-corner-all" data-history="false">
+    <div data-role="header" class="ui-header ui-bar-c">
+
+    </div>
+
+
+    <div data-role="content" data-theme="d" class="ui-corner-bottom ui-content">
+        <span id="achievement_message"></span>
+        <span id="achievement_score"></span>
+
+        <span id="achievement_pic"></span>
+
+        <div class="ui-grid-a">
+
+            <a id="achievement_ok" href="#" data-role="button"  class="center-button" data-rel="back" data-transition="flow" data-theme="b ">OK</a>
+
+        </div>
+
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+<!--
+
+
+
+<div data-role="popup" id="gotoleveltwo" data-overlay-theme="a" data-theme="c" data-dismissible="false" style="max-width:300px;" class="ui-corner-all" data-history="false">
+    <div data-role="header" class="ui-header ui-bar-c">
+
+    </div>
+
+
+    <div data-role="content" data-theme="d" class="ui-corner-bottom ui-content">
+        <span id="roundOutcome"></span>
+        <span id="roundScore"></span>
+
+        <span id="pic"></span>
+
+        <div class="ui-grid-a">
+
+            <a id="continuetolevel2Btn" href="#" data-role="button"  class="center-button" data-rel="back" data-transition="flow" data-theme="b ">Continue</a>
+
+        </div>
+
+    </div>
+</div>
+
+
+
+
+<div data-role="popup" id="gotolevelthree" data-overlay-theme="a" data-theme="c" data-dismissible="false" style="max-width:300px;" class="ui-corner-all" data-history="false">
+   <div data-role="header" class="ui-header ui-bar-c">
+
+   </div>
+
+   <div data-role="content" data-theme="d" class="ui-corner-bottom ui-content">
+     <h1>You Win!</h1>
+     <span id="levelTwoScore"></span>
+
+     <img src="../gfx/trophy.png" alt="image">
+
+     <div class="ui-grid-a">
+
+
+        <a id="continuetolevel3Btn" href="#" data-role="button"  class="center-button" data-rel="back" data-transition="flow" data-theme="b">Continue</a>
+
+    </div>
+
+</div>
+</div>
+</div>
+-->
+
+  <div data-role="popup" id="win" data-overlay-theme="a" data-theme="c" data-dismissible="false" style="max-width:300px;" class="ui-corner-all" data-history="false">
+            <div data-role="header" class="ui-header ui-bar-c">
+
+            </div>
+
+
+            <div data-role="content" data-theme="d" class="ui-corner-bottom ui-content">
+                 <h1>You Win!</h1>
+                <span id="winTotalScore"></span>
+                <img src="../gfx/trophy.png" alt="image">
+
+                <div class="ui-grid-a">
+
+                    <a id="winContinueBtn" href="#" data-role="button" class="center-button" data-rel="back" data-transition="flow" data-theme="b ">Continue</a>
+
+                </div>
+
+            </div>
+        </div>
+</div>
+
+<div data-role="page" id="highscores">
+    <div id="header" data-role="header" style="text-align: center;">Leaderboard</div>
+    <div id="content" data-role="content">
+
+        <span id="yourScore"></span>
+        <table data-role="reflow" class="ui-responsive" id="personDataTable">
+
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Score</th>
+                </tr>
+            </thead>
+            <tbody>
+
+            </tbody>
+        </table>
+
+    </div>
+
+
+    <a id="playagain" href="#" data-role="button"  data-rel="back" data-transition="flow" data-theme="b ">Play Again</a>
+</div>
+
+</body>
+
+</html>

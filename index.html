@@ -1,0 +1,76 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<link rel="stylesheet" href="styles/intr.css" />
+	<meta charset="utf-8" lang="en">
+	<title>Match Pang-Pang</title>
+	<style>
+	button{ border:none; cursor:pointer; outline:none; }
+	button#playpausebtn{
+		float: right;
+		margin-top: -55px;
+		background:url(images/mute.png) no-repeat;
+		width:50px;
+		height:47px;
+	}
+	</style>
+	<script>
+	var audio, playbtn, mutebtn, seek_bar;
+	var bleep = new Audio();
+	bleep.src="musics/button.mp3";
+
+	function initAudioPlayer(){
+		audio = new Audio();
+		audio.src = "musics/happy.mp3";
+		audio.loop = true;
+		audio.play();
+		// Set object references
+		playbtn = document.getElementById("playpausebtn");
+		mutebtn = document.getElementById("mutebtn");
+		// Add Event Handling
+		playbtn.addEventListener("click",playPause);
+		mutebtn.addEventListener("click", mute);
+		// Functions
+		function playPause(){
+			if(audio.paused){
+				audio.play();
+				playbtn.style.background = "url(images/mute.png) no-repeat";
+			} else {
+				audio.pause();
+				playbtn.style.background = "url(images/sound.png) no-repeat";
+			}
+		}
+		/*function mute(){
+			if(audio.muted){
+				audio.muted = false;
+				mutebtn.style.background = "url(images/speaker.png) no-repeat";
+			} else {
+				audio.muted = true;
+				mutebtn.style.background = "url(images/speaker_muted.png) no-repeat";
+			}
+		}*/
+	}
+	window.addEventListener("load", initAudioPlayer);
+	</script>
+</head>
+<body>
+	
+	<button id="playpausebtn"></button>
+	<div id="container">
+		<div id="title">
+			<h1>Match Pang-Pang</h1>
+		</div>
+		<div id="play">
+			<h1><a href="play" onmousedown="bleep.play()">PLAY</a></h1>
+		</div>
+		<div id="instr">
+			<h1><a href="how-to" onmousedown="bleep.play()">PLAY<br/>INFO</a></h1>
+		</div>
+		<div id="lead">
+			<h1><a href="high-scores" onmousedown="bleep.play()">HIGH<br/>SCORES</a></h1>
+		</div>
+		<div id="cont">
+			<h1><a href="contact" onmousedown="bleep.play()">CONTACT US</a></h1>
+		</div>
+	</body>
+	</html>

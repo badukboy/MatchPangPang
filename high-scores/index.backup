@@ -1,0 +1,25 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<link rel="stylesheet" href="../styles/intr.css" />
+<meta charset="utf-8" lang="en">
+<title>Leaderboards</title>
+</head>
+<body>
+	<div>
+		<a href="../"><img id="home" src="../images/home.png" alt="logo"/></a>
+	</div>
+	<div id="container">
+		<div id="howTo">
+			<h1>High Scores</p>
+		</div>
+		<div id="title">
+			<h1>Highscore</p>
+		<div>
+	</div>
+	
+	<embed src="C:\wamp\www\musics\happy.mp3" loop="true" hidden="true" autostart="true">
+	</embed>
+	
+</body>
+</html>

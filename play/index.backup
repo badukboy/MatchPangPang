@@ -1,0 +1,35 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<link rel="stylesheet" href="../styles/intr.css" />
+	<meta charset="utf-8" lang="en">
+	<title>Play</title>
+
+	<script src="../js/prefixfree.min.js"></script>
+
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+	<script src="js/game.js"></script>
+</head>
+<body>
+	<div>
+		<a href="../"><img id="home" src="../images/home.png" alt="logo"/></a>
+	</div>
+	<div id="gameBoard">
+		<span id="gameButtons">
+			<span class="button">
+				<span id="counter">0</span> Moves
+			</span>
+
+			<span class="button">
+				<a onclick="startAgain();">Start again</a>
+			</span>
+		</span>
+
+		<div id="boxes"> </div>
+	</div>
+	
+	<embed src="C:\wamp\www\musics\happy.mp3" loop="true" hidden="true" autostart="true">
+	</embed>
+	
+</body>
+</html>
